@@ -7,9 +7,12 @@ export default function Index() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor:"green"
       }}
     >
+      <Text>hi</Text>
       <Bar></Bar>
+      <Text>hi</Text>
     </View>
   );
 }
