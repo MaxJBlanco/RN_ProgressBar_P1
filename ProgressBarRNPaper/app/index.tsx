@@ -10,9 +10,8 @@ export default function Index() {
         backgroundColor:"green"
       }}
     >
-      <Text>hi</Text>
+    
       <Bar></Bar>
-      <Text>hi</Text>
     </View>
   );
 }
