@@ -1,6 +1,9 @@
-import { Text, View } from "react-native";
+import { Text, TouchableHighlight, View } from "react-native";
 import Bar from "./components/Bar";
+import { useState } from "react";
 export default function Index() {
+  const [trigger, setTrigger] = useState<boolean>(false);
+  
   return (
     <View
       style={{
@@ -11,7 +14,11 @@ export default function Index() {
       }}
     >
     
-      <Bar></Bar>
+      <Bar ></Bar>
+    
+      <TouchableHighlight onPress={()=> setTrigger(!trigger)}>
+        <Text>Load</Text>
+      </TouchableHighlight>
     </View>
   );
 }
