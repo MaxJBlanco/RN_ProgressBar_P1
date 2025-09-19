@@ -1,24 +1,39 @@
+import { useState } from "react";
 import { Text, TouchableHighlight, View } from "react-native";
 import Bar from "./components/Bar";
-import { useState } from "react";
 export default function Index() {
-  const [trigger, setTrigger] = useState<boolean>(false);
-  
+  const incrementBar = (amt:number) =>{
+    if(progress <1){
+      setProgress(Math.min(progress+amt, 1));
+    }
+    else{
+      setProgress(0)
+    }
+  }
+
+  const[progress, setProgress] = useState<number>(0);
   return (
     <View
       style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor:"green"
+        backgroundColor:"green",
+        gap:20
       }}
     >
-    
-      <Bar ></Bar>
-    
-      <TouchableHighlight onPress={()=> setTrigger(!trigger)}>
-        <Text>Load</Text>
-      </TouchableHighlight>
+    <Bar progress={progress}></Bar>
+
+    <TouchableHighlight onPress={()=>incrementBar(0.1)}>
+      <Text>Increment Bar Progress By 10%</Text>
+    </TouchableHighlight>
+    <TouchableHighlight onPress={()=>incrementBar(0.2)}>
+      <Text>Increment Bar Progress By 20%</Text>
+    </TouchableHighlight>
+    <TouchableHighlight onPress={()=>incrementBar(0.4)}>
+      <Text>Increment Bar Progress By 40%</Text>
+    </TouchableHighlight>
+      
     </View>
   );
 }
